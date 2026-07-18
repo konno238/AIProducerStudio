@@ -1,0 +1,367 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Producer Studio v9 Safe</title><style>
+:root{--bg:#f5f7fa;--card:#fff;--line:#dfe5ec;--text:#172033;--muted:#6d7888;--blue:#1769d2;--green:#137a48;--red:#b42318}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;background:var(--bg);color:var(--text)}button,input,textarea,select{font:inherit}.flow{position:sticky;top:0;z-index:20;background:#10223f;color:white;padding:8px 12px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;box-shadow:0 4px 16px #0002}.brand{font-weight:800;white-space:nowrap}.steps{display:flex;justify-content:center;gap:5px;overflow:auto}.step{font-size:11px;padding:6px 9px;border-radius:999px;background:#ffffff18;white-space:nowrap}.step.done{background:#1e8a59}.step.current{background:#fff;color:#10223f;font-weight:800}.nav{display:flex;gap:5px}.nav button{border:0;border-radius:8px;padding:7px 10px;background:#ffffff18;color:#fff}.nav button.active{background:#fff;color:#10223f}.trendbar{grid-column:1/-1;display:grid;grid-template-columns:auto repeat(3,minmax(0,1fr));gap:6px;align-items:stretch;padding-top:2px}.trendtitle{font-size:10px;font-weight:800;white-space:nowrap;color:#bcd2f1;display:flex;align-items:center}.rankcard{min-width:0;background:#ffffff10;border:1px solid #ffffff22;border-radius:8px;padding:5px 7px;display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}.rankno{font-size:15px;font-weight:900}.rankbody{min-width:0}.rankbody b{display:block;font-size:10px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rankbody small{display:block;font-size:9px;color:#b9c9dd;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rankbtn{border:0;border-radius:6px;padding:5px 7px;background:#fff;color:#10223f;font-size:9px;font-weight:800;cursor:pointer}.tutorial{position:fixed;inset:0;background:#071326cc;z-index:100;display:flex;align-items:center;justify-content:center;padding:18px}.tutorial-box{width:min(520px,100%);background:#fff;color:#172033;border-radius:16px;padding:20px;box-shadow:0 24px 80px #0008}.tutorial-box h2{margin:0 0 8px}.tutorial-step{border:1px solid #dfe5ec;border-radius:12px;padding:12px;margin-top:10px;background:#f8fafc}.tutorial-step b{display:block;margin-bottom:4px}.tutorial-actions{display:flex;justify-content:space-between;gap:8px;margin-top:16px}.helpbtn{border:1px solid #ffffff55;background:#ffffff12;color:#fff;border-radius:999px;width:30px;height:30px;font-weight:900;cursor:pointer}.opwrap{display:inline-flex;align-items:center;gap:4px}.ophelp{border:1px solid #b8c4d3;background:#fff;color:#496078;border-radius:999px;width:22px;height:22px;min-width:22px;padding:0;font-size:12px;font-weight:900;line-height:20px;cursor:pointer}.ophelp:hover{background:#edf4ff;border-color:#79a7df;color:#1769d2}.field-help{display:flex;align-items:center;gap:5px}.field-help label{margin:0}.help-note{font-size:11px;color:#6d7888;margin-left:2px}.spotlight{outline:4px solid #ffca58!important;outline-offset:3px}.mini-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:9px}.mini-guide div{border:1px solid var(--line);border-radius:9px;padding:8px;background:#fbfcfe;font-size:11px}.mini-guide b{display:block;font-size:12px;margin-bottom:2px}
+.analytics-fold{margin-top:8px}.analytics-fold summary{cursor:pointer;font-size:12px;font-weight:800;color:var(--muted);padding:7px 2px}.analytics-fold[open] summary{margin-bottom:6px}.wrap{max-width:1200px;margin:auto;padding:12px}.view{display:none}.view.active{display:block}.home-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:10px}.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}.compact-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.compact-head h2,.compact-head h3{margin:0;font-size:15px}.primary{background:var(--blue);color:#fff;border:0;border-radius:9px;padding:9px 12px;font-weight:800}.ghost{background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px}.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:9px}.kpi{border:1px solid var(--line);border-radius:10px;padding:8px;background:#fbfcfe}.kpi b{display:block;font-size:19px}.kpi small{color:var(--muted)}.next{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#edf4ff;border:1px solid #b9d2f7;border-radius:10px;padding:10px;margin-top:9px}.library{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:9px;max-height:430px;overflow:auto}.item{border:1px solid var(--line);border-radius:10px;padding:9px;background:#fff;cursor:pointer}.item:hover{border-color:#80aee8}.item strong{display:block;font-size:13px}.item small{color:var(--muted)}.item-progress{display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center;margin-top:7px}.item-progress .bar{margin:0;height:6px}.item-progress em{font-style:normal;font-size:10px;font-weight:800;color:var(--muted)}.stage-label{font-size:10px;color:var(--muted);margin-top:4px}.system-note{font-size:11px;padding:7px 9px;border-radius:8px;background:#fff7e6;border:1px solid #f4d596;color:#76510b;margin-top:8px}.attention-board{margin-top:9px;border:1px solid #f0b4ad;background:#fff5f3;border-radius:10px;padding:9px}.attention-board.ok{border-color:#b8dfc8;background:#f0faf4}.attention-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.attention-head b{font-size:13px}.attention-count{background:#b42318;color:#fff;border-radius:99px;padding:2px 7px;font-size:10px;font-weight:900}.attention-board.ok .attention-count{background:#137a48}.attention-list{display:grid;gap:5px;margin-top:7px}.attention-item{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;border-top:1px solid #efd7d3;padding-top:6px;font-size:11px}.attention-board.ok .attention-item{border-color:#d4eadc}.attention-item button{border:0;background:transparent;color:#1769d2;font-size:11px;font-weight:800;cursor:pointer}.blocker{font-size:10px;font-weight:800;border-radius:7px;padding:5px 7px;margin-top:5px;background:#fff2d8;color:#855500}.blocker.user{background:#ffe8e5;color:#a1281d}.blocker.system{background:#eef2f7;color:#526274}.blocker.done{background:#e8f6ee;color:#137a48}.analytics-row{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:9px}.metric{border:1px solid var(--line);border-radius:10px;padding:9px}.metric b{font-size:20px;display:block}.bar{height:7px;background:#e8edf3;border-radius:99px;overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;background:var(--blue)}.note{font-size:12px;color:var(--muted);margin-top:7px}.editor-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:10px}.field{display:grid;gap:5px;margin-top:9px}.field label{font-size:12px;color:var(--muted);font-weight:700}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff}.field textarea{min-height:290px;resize:vertical}.toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.status{padding:4px 8px;border-radius:99px;background:#fff2d8;color:#855500;font-size:12px;font-weight:800}.status.ok{background:#e8f6ee;color:var(--green)}.review-list{display:grid;gap:8px;margin-top:9px}.review{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fbfcfe}.review h4{margin:0 0 5px}.readonly{white-space:pre-wrap;color:#334155;font-size:13px}.actions{display:flex;gap:7px;margin-top:8px}.approve{background:var(--green);color:#fff;border:0;border-radius:8px;padding:8px 10px}.revise{background:#fff;border:1px solid #e5b4af;color:var(--red);border-radius:8px;padding:8px 10px}.hidden{display:none!important}@media(max-width:800px){.flow{grid-template-columns:1fr}.trendbar{grid-template-columns:1fr}.trendtitle{display:none}.rankcard{padding:5px 7px}.mini-guide{grid-template-columns:1fr}.brand{text-align:center}.steps{justify-content:flex-start}.nav{justify-content:center}.home-grid,.editor-grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(3,1fr)}.library{grid-template-columns:1fr}}
+
+/* v7: シンプルを保ちながら、状態だけを色で識別 */
+:root{--yellow:#b7791f;--yellow-bg:#fff8e8;--yellow-line:#efd18b;--purple:#7253b8;--purple-bg:#f6f2ff;--green-bg:#edf9f2;--red-bg:#fff2f0;--blue-bg:#eef5ff}
+.version{font-size:10px;font-weight:700;opacity:.7;margin-left:3px}
+.flow{background:#16243a}
+.step:nth-child(1){border-bottom:2px solid #7253b8}.step:nth-child(2){border-bottom:2px solid #1769d2}.step:nth-child(3),.step:nth-child(4),.step:nth-child(5),.step:nth-child(6){border-bottom:2px solid #137a48}.step:nth-child(7){border-bottom:2px solid #6d7888}
+.step.done{background:#e8f6ee;color:#0f6840}.step.current{box-shadow:0 0 0 2px #fff4 inset}
+.card{box-shadow:0 1px 2px #10223f0a}
+.today-title{display:flex;align-items:center;gap:7px}
+.next{background:var(--yellow-bg);border-color:var(--yellow-line)}
+.next.is-production{background:var(--green-bg);border-color:#b8dfc8}
+.next.is-error{background:var(--red-bg);border-color:#efb2aa}
+.status.waiting{background:#fff0c7;color:#805500}.status.production{background:#e8f6ee;color:#137a48}.status.error{background:#ffe5e1;color:#a1281d}.status.done{background:#eef2f7;color:#526274}
+.kpi{position:relative;overflow:hidden}.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:#cbd5e1}.kpi.waiting::before{background:#d69e2e}.kpi.production::before{background:#229761}.kpi.done::before{background:#718096}.kpi.selected::before{background:#1769d2}
+.system-status{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.system-status-main{display:flex;align-items:center;gap:9px}.status-dot{width:11px;height:11px;border-radius:50%;background:#64748b;box-shadow:0 0 0 4px #64748b20}.status-dot.waiting{background:#d69e2e;box-shadow:0 0 0 4px #d69e2e20}.status-dot.production{background:#229761;box-shadow:0 0 0 4px #22976120}.status-dot.error{background:#c24136;box-shadow:0 0 0 4px #c2413620}.status-dot.done{background:#64748b}
+.system-status b{display:block;font-size:14px}.system-status small{color:var(--muted)}
+.item{border-left:4px solid #cbd5e1;transition:border-color .15s,box-shadow .15s,transform .15s}.item:hover{transform:translateY(-1px);box-shadow:0 5px 14px #10223f12}.item.state-script{border-left-color:#1769d2}.item.state-production{border-left-color:#229761}.item.state-waiting{border-left-color:#d69e2e}.item.state-error{border-left-color:#c24136}.item.state-done{border-left-color:#718096;background:#fafbfc}
+.item-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.state-chip{font-size:10px;font-weight:800;border-radius:99px;padding:3px 7px;background:#eef2f7;color:#526274;white-space:nowrap}.state-chip.script{background:#eaf2ff;color:#1769d2}.state-chip.production{background:#e8f6ee;color:#137a48}.state-chip.waiting{background:#fff0c7;color:#805500}.state-chip.error{background:#ffe5e1;color:#a1281d}.state-chip.done{background:#eef2f7;color:#526274}
+.item .bar i.script{background:#1769d2}.item .bar i.production{background:#229761}.item .bar i.waiting{background:#d69e2e}.item .bar i.error{background:#c24136}.item .bar i.done{background:#718096}
+.blocker.waiting{background:#fff2d8;color:#855500}.blocker.error{background:#ffe8e5;color:#a1281d}.blocker.production{background:#e8f6ee;color:#137a48}
+.attention-board{border-color:#efd18b;background:#fffaf0}.attention-board.has-error{border-color:#efb2aa;background:#fff5f3}.attention-count{background:#b7791f}.attention-board.has-error .attention-count{background:#b42318}
+.primary{box-shadow:0 1px 2px #0b4f9d22}.primary:hover,.approve:hover{filter:brightness(.96)}button{cursor:pointer}
+.section-icon{font-size:16px}
+@media(max-width:800px){.system-status{align-items:flex-start}.kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>
+.card{margin-bottom:14px}
+.ai-status{background:#eef8ee;border:1px solid #b7dfbf;padding:10px;border-radius:10px;margin:10px 0}
+.ai-status:before{content:"🤖 AI稼働中 ";font-weight:bold}
+</style>
+
+<style id="v9-safe-style">
+.safe-panel{margin-top:10px;border:1px solid #b8dfc8;background:#f4fbf6;border-radius:12px;padding:11px}
+.safe-panel h3{margin:0;font-size:14px}.safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}
+.safe-btn{border:1px solid #c7d2df;background:#fff;border-radius:9px;padding:9px 10px;font-weight:800;cursor:pointer}
+.safe-btn.primary-safe{background:#137a48;color:#fff;border-color:#137a48}
+.safe-status{font-size:11px;color:#526274;margin-top:7px}.safe-status strong{color:#137a48}
+.cut-panel{margin-top:10px;border:1px solid #f0cf7c;background:#fffaf0;border-radius:11px;padding:10px}
+.cut-panel h3{margin:0 0 5px;font-size:14px}.cut-row{display:grid;grid-template-columns:1fr auto;gap:7px;margin-top:7px}
+.cut-row select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff}
+.cut-log{margin-top:8px;font-size:11px;color:#6d7888;max-height:110px;overflow:auto}
+.cut-log div{padding:5px 0;border-top:1px solid #eadfca}
+.save-indicator{font-size:11px;font-weight:800;color:#137a48}
+.danger-guard{border-color:#e5b4af!important;color:#b42318!important}
+@media(max-width:800px){.safe-grid{grid-template-columns:1fr}.cut-row{grid-template-columns:1fr}}
+</style>
+
+</head><body>
+<header class="flow"><div class="brand">AI Producer <span class="version">v9 Safe</span></div><div class="steps" id="steps"></div><nav class="nav"><button data-view="home" class="active">ホーム</button><button data-view="script">脚本推敲</button><button data-view="review">成果物確認</button><button class="helpbtn" id="helpBtn" title="使い方">?</button></nav><div class="trendbar"><div class="trendtitle">今日の流行テーマ TOP3</div><div class="rankcard"><div class="rankno">🥇</div><div class="rankbody"><b>ChatGPT Workを実際に使う</b><small>完成物まで任せられるか検証</small></div><span class="opwrap"><button class="rankbtn" data-topic="news-1">作る</button><button class="ophelp" data-help="ranking" aria-label="ランキングから作る方法">?</button></span></div><div class="rankcard"><div class="rankno">🥈</div><div class="rankbody"><b>新しい音声AIは自然か</b><small>人間らしさを15秒で比較</small></div><span class="opwrap"><button class="rankbtn" data-topic="eleven-1">作る</button><button class="ophelp" data-help="ranking" aria-label="ランキングから作る方法">?</button></span></div><div class="rankcard"><div class="rankno">🥉</div><div class="rankbody"><b>過去チャット検索の実用性</b><small>探す時間を何分減らせるか</small></div><span class="opwrap"><button class="rankbtn" data-topic="chatgpt-2">作る</button><button class="ophelp" data-help="ranking" aria-label="ランキングから作る方法">?</button></span></div></div></header>
+<main class="wrap">
+<section id="home" class="view active"><div class="home-grid">
+<div class="card"><div class="compact-head"><h2 class="today-title"><span class="section-icon">🔥</span>今日やること</h2><span class="opwrap"><button class="primary" id="openNext">次へ</button><button class="ophelp" data-help="next" aria-label="次への使い方">?</button></span></div><div class="next"><div><b id="nextTitle">脚本を選択</b><div class="note" id="nextText">一覧から動画を選び、脚本だけ推敲します。</div></div><span class="status" id="nextStatus">待機</span></div><div class="mini-guide"><div><b>①動画を選ぶ</b>上のランキングか脚本一覧から選択</div><div><b>②脚本だけ直す</b>「次へ」で脚本を確認・承認</div><div><b>③完成品を確認</b>画像・音声・動画は原則OKか修正だけ</div></div><div class="kpis"><div class="kpi selected"><b id="kAll">0</b><small>📂 全案件</small></div><div class="kpi waiting"><b id="kPending">0</b><small>🟨 確認待ち</small></div><div class="kpi production"><b id="kMaking">0</b><small>🤖 制作中</small></div><div class="kpi done"><b id="kDone">0</b><small>✅ 完了</small></div><div class="kpi selected"><b>4本</b><small>🎯 今週目標</small></div></div><div class="system-note">進捗ゲージは制作管理上の状態です。現在は自動制作エンジン未接続のため、画像・音声・動画が裏で生成される状態ではありません。</div><div class="attention-board" id="attentionBoard"><div class="attention-head"><b>⚠ 止まっている案件・社長の操作待ち</b><span class="attention-count" id="attentionCount">0件</span></div><div class="attention-list" id="attentionList"></div></div><div class="compact-head" style="margin-top:10px"><h3>脚本ライブラリ</h3><select id="appFilter"></select></div><div class="library" id="library"></div></div>
+<div class="card"><div class="system-status"><div class="system-status-main"><span class="status-dot" id="systemDot"></span><div><b id="systemTitle">状態を確認中</b><small id="systemText">案件の状況を集計しています。</small></div></div><button class="ophelp" data-help="system-status" aria-label="全体状態の説明">?</button></div></div>
+<div class="card"><div class="compact-head"><h2>📊 ダッシュボード</h2><span class="status">収益化優先</span></div><div class="review"><h4>次の投稿順</h4><div class="readonly">チャンネル予告Shorts → チャンネル予告長尺 → ChatGPT①②③ → ChatGPT長尺</div></div><details class="analytics-fold"><summary>YouTube解析プロトタイプを表示</summary><div class="analytics-row"><div class="metric"><small>登録者</small><b>0</b><div class="bar"><i style="width:2%"></i></div></div><div class="metric"><small>直近28日再生</small><b>0</b><div class="bar"><i style="width:1%"></i></div></div><div class="metric"><small>Shorts平均視聴率</small><b>—</b></div><div class="metric"><small>長尺平均維持率</small><b>—</b></div><div class="metric"><small>CTR</small><b>—</b></div><div class="metric"><small>公開本数</small><b>0</b></div></div><div class="note">YouTube StudioのCSV・API連携後に実データへ置換します。</div></details></div></div>
+</div></section>
+<section id="script" class="view"><div class="editor-grid"><div class="card"><div class="compact-head"><h2>選択中</h2><span class="status" id="scriptStatus">未承認</span></div><div class="field"><label>アプリ</label><input id="sApp" readonly></div><div class="field"><label>動画</label><select id="sSelect"></select></div><div class="field"><label>狙い</label><textarea id="sGoal" readonly style="min-height:80px"></textarea></div><div class="field"><label>冒頭フック</label><input id="sHook"></div></div><div class="card"><div class="compact-head"><h2>脚本推敲</h2><span class="note">ここだけ社長が編集</span></div><div class="field"><div class="field-help"><label>推敲後脚本</label><button class="ophelp" data-help="script-edit" aria-label="脚本推敲の方法">?</button></div><textarea id="sText"></textarea></div><div class="field" id="ctaField"><div class="field-help"><label>チャンネル登録の訴求（Shortsのみ・脚本とは別枠）</label><button class="ophelp" data-help="cta" aria-label="登録訴求の使い方">?</button></div><textarea id="sCta" style="min-height:82px"></textarea></div><div class="toolbar"><span class="opwrap"><button class="ghost" id="natural">話し言葉に整える</button><button class="ophelp" data-help="natural" aria-label="話し言葉変換の説明">?</button></span><span class="opwrap"><button class="ghost" id="reset">元に戻す</button><button class="ophelp" data-help="reset" aria-label="元に戻す説明">?</button></span><span class="opwrap"><button class="primary" id="approve">脚本を承認して制作へ</button><button class="ophelp" data-help="approve-script" aria-label="脚本承認の説明">?</button></span></div><div class="note" id="charInfo"></div></div></div></section>
+<section id="review" class="view"><div class="card"><div class="compact-head"><h2>成果物確認</h2><span class="note">原則、確認だけ</span></div><div class="review-list"><div class="review"><h4>画像</h4><div class="readonly">制作側から候補画像が届いたらここに表示。操作は「問題なし」「修正依頼」のみ。</div><div class="actions"><span class="opwrap"><button class="approve">問題なし</button><button class="ophelp" data-help="approve-image" aria-label="画像確認の説明">?</button></span><span class="opwrap"><button class="revise">修正依頼</button><button class="ophelp" data-help="revise" aria-label="修正依頼の説明">?</button></span></div></div><div class="review"><h4>音声</h4><div class="readonly">ElevenLabs等の音声プレビューを表示予定。</div><div class="actions"><span class="opwrap"><button class="approve">問題なし</button><button class="ophelp" data-help="approve-audio" aria-label="音声確認の説明">?</button></span><span class="opwrap"><button class="revise">修正依頼</button><button class="ophelp" data-help="revise" aria-label="修正依頼の説明">?</button></span></div></div><div class="review"><h4>動画・サムネ・投稿情報</h4><div class="readonly">最終MP4、サムネ、タイトル、概要欄、タグ、固定コメントをまとめて確認します。</div><div class="actions"><span class="opwrap"><button class="approve">完パケ承認</button><button class="ophelp" data-help="approve-package" aria-label="完パケ承認の説明">?</button></span><span class="opwrap"><button class="revise">修正依頼</button><button class="ophelp" data-help="revise" aria-label="修正依頼の説明">?</button></span></div></div></div></div></section>
+</main><div class="tutorial hidden" id="tutorial"><div class="tutorial-box"><h2 id="tTitle">AI Producerの使い方</h2><p id="tText">社長が行う操作は3つだけです。</p><div class="tutorial-step" id="tDetail"></div><div class="tutorial-actions"><button class="ghost" id="tPrev">戻る</button><button class="primary" id="tNext">次へ</button></div></div></div><script>
+const DATA={"チャンネル紹介": [{"id": "intro-short", "type": "Shorts", "title": "AI、まず私が試します", "hook": "AIって、結局どれが使えるの？", "script": "AIって、結局どれが使えるの？ ChatGPT、Claude、Gemini。初心者の私が、実際に試して失敗まで見せます。まずはChatGPTから。", "goal": "チャンネルの価値を15秒で伝える"}, {"id": "intro-long", "type": "長尺15分", "title": "このチャンネルでAIを全部試す｜初心者向け予告編", "hook": "AIが多すぎて選べないので、初心者目線で全部試します。", "script": "【0:00 オープニング】\nAIって、結局どれを使えばいいのか分かりにくくないですか？ ChatGPT、Claude、Gemini、Perplexity、NotebookLM、ElevenLabs。名前は聞くけれど、自分に必要なのか、無料でどこまでできるのか、実際に使えるのかは、試してみないと分かりません。このチャンネルでは、AIに詳しい人の説明を聞くだけではなく、初心者の私が実際に使って、完成するところまで試します。\n\n【1:15 このチャンネルでやること】\n毎回のテーマは、AIそのものではなく、私たちが解決したい悩みです。旅行計画を3分で作れるのか。長い資料を5分で理解できるのか。無料版だけでチラシやホームページを作れるのか。AI音声は本当に自然に聞こえるのか。できたことだけでなく、失敗したところ、修正にかかった時間、最後に人が確認すべき部分まで見せます。\n\n【2:40 検証するAI】\n最初はChatGPTです。文章、画像、調べ物、アイデア出しなど、初心者が最初に触れやすい使い方を試します。次にClaude。長文整理や自然な文章作りで、ChatGPTと何が違うのか比べます。Geminiでは、画像を見せた質問やGoogle系サービスと組み合わせた生活整理を検証します。Perplexityでは、出典付きの調べ物が本当に安全で速いのかを確認します。NotebookLMでは、会議資料や学習資料を入れて、読む時間をどれだけ減らせるか試します。ElevenLabsでは、同じ台本から複数のAI音声を作り、自然さと制作時間を比べます。\n\n【5:20 動画の見方】\nShortsは約15秒で、結果を先に見せます。長い説明はせず、できたのか、失敗したのか、続きを見る価値があるのかを一つだけ伝えます。長尺動画では、登録、基本操作、実際の制作、失敗、修正、完成、評価までを最初から最後まで見せます。Shortsで気になった内容は、関連する長尺動画で同じ成果物を詳しく確認できる形にします。\n\n【7:10 評価ルール】\n評価するのは五つです。一つ目は初心者でも迷わず使えるか。二つ目は無料版でどこまでできるか。三つ目は完成まで何分かかるか。四つ目は、そのまま使える完成度か。五つ目は、事実確認や手直しがどれくらい必要かです。AIが作ったからすごい、では終わらせません。実際に生活や仕事で使えるかを判断します。\n\n【9:10 失敗も公開する理由】\nAIは一回で正解を出すとは限りません。指示が曖昧なら、もっともらしいけれど使えない答えが出ることもあります。画像の文字が崩れたり、調べ物の情報が古かったり、音声が不自然になったりします。このチャンネルでは、その失敗を隠さず、どの指示で直ったのか、どこは人が確認したのかを残します。初心者が同じ失敗を避けられる動画にします。\n\n【11:05 完パケ自動化への挑戦】\nもう一つの大きなテーマが、動画制作そのものの自動化です。企画、脚本、画像、音声、字幕、動画、サムネイル、タイトル、概要欄まで、AIでどこまで一つの完成パッケージにできるかを試します。ただし、すべてを無確認で自動化するのではありません。脚本は人が推敲し、画像、音声、完成動画は途中で確認します。任せられる工程だけを少しずつ増やします。\n\n【13:05 最初のシリーズ】\n最初のシリーズはChatGPTです。三分で旅行プランを作れるのか。良い回答を出すために必要な三つの指示。無料版だけで実用品を作れるのか。この三本のShortsと、登録から完成までを見せる初心者ガイドを公開します。その後、Claude、Gemini、Perplexityへ進みます。\n\n【14:15 エンディング】\nAIが気になるけれど、難しそうでまだ使えていない方へ。私が先に試します。成功だけでなく、失敗と直し方まで見せます。最初の検証はChatGPTです。チャンネル登録して、一緒にAIで本当にできることを確認していきましょう。", "goal": "チャンネルの方針・対象AI・検証基準・完パケ自動化を説明する親動画"}], "ChatGPT": [{"id": "chatgpt-1", "type": "Shorts①", "title": "3分で旅行プランは作れる？", "hook": "旅行の計画、3分で終わる？", "script": "旅行の計画、3分で終わる？ ChatGPTに日程と予算を入れたら、移動までまとまりました。でも、そのまま予約するのは危険。確認ポイントは長尺で。", "goal": "便利さと注意点を同時に見せる"}, {"id": "chatgpt-2", "type": "Shorts②", "title": "指示はこの3つだけ", "hook": "ChatGPT、長文プロンプトはいりません。", "script": "ChatGPT、長文プロンプトはいりません。目的、条件、出力形式。この3つだけで回答がかなり変わります。保存して、次にそのまま試してください。", "goal": "操作を1つだけ教える"}, {"id": "chatgpt-3", "type": "Shorts③", "title": "無料版だけでチラシ作成", "hook": "無料版だけで、チラシは作れる？", "script": "無料版だけで、チラシは作れる？ 文章と構成はすぐ完成。でも見た目は一発で決まりません。修正回数まで含めて、実際の結果を長尺で見せます。", "goal": "検証結果への興味を作る"}, {"id": "chatgpt-long", "type": "長尺15分", "title": "ChatGPT初心者ガイド｜登録から完成まで", "hook": "初心者がChatGPTだけで実用品を作れるのか、最初から試します。", "script": "【0:00】完成形を先に見せる\n【0:30】登録と画面の見方\n【2:00】最初の質問を入力\n【4:00】目的・条件・出力形式の3点\n【7:00】実際に旅行プランを作る\n【10:00】失敗例と修正\n【13:00】無料版でできる範囲\n【14:30】結論と次回予告", "goal": "検索資産＋Shortsの親動画"}], "Claude": [{"id": "claude-1", "type": "Shorts①", "title": "長文を一瞬で整理できる？", "hook": "この長文、読む前にClaudeへ。", "script": "この長文、読む前にClaudeへ。要点、注意点、次にやることまで分けてもらいました。速い。でも、大事な数字は原文確認が必要です。", "goal": "長文整理の強みを見せる"}, {"id": "claude-2", "type": "Shorts②", "title": "文章を自然に直す一言", "hook": "AIっぽい文章、こう直します。", "script": "AIっぽい文章、こう直します。「説明ではなく、友達に話す口調で」。これを足すだけでかなり自然になります。最後は自分の言葉で一度だけ確認。", "goal": "話し言葉推敲につなげる"}, {"id": "claude-3", "type": "Shorts③", "title": "企画書を10分で作れる？", "hook": "Claudeだけで、企画書は10分で完成する？", "script": "Claudeだけで、企画書は10分で完成する？ 骨組みは早い。でも数字の根拠は別確認。どこまで任せられるか、実物で検証します。", "goal": "実現可能な範囲の冒険"}, {"id": "claude-long", "type": "長尺15分", "title": "Claude初心者ガイド｜長文・文章作成を実演", "hook": "Claudeは何が得意なのか、長文整理と企画書作成で試します。", "script": "【0:00】完成した企画書を先出し\n【0:30】登録と基本画面\n【2:00】長文の要約\n【5:00】自然な文章への推敲\n【8:00】企画書をゼロから作成\n【11:00】失敗と事実確認\n【13:30】ChatGPTとの使い分け\n【14:30】結論", "goal": "Claudeの役割を明確化"}], "Gemini": [{"id": "gemini-1", "type": "Shorts①", "title": "Google情報で旅行計画", "hook": "Google系AIなら、旅行計画は強い？", "script": "Google系AIなら、旅行計画は強い？ 場所ごとに整理できました。でも営業時間は変わります。便利さより、最後の確認まで含めて検証します。", "goal": "Google連携イメージを伝える"}, {"id": "gemini-2", "type": "Shorts②", "title": "画像を見せて質問する", "hook": "文字で説明せず、画像を見せます。", "script": "文字で説明せず、画像を見せます。Geminiに画面を見せて「次にどこを押す？」。初心者ほど、この使い方が分かりやすいです。", "goal": "画像入力の使い方を1つ提示"}, {"id": "gemini-3", "type": "Shorts③", "title": "予定表を5分で整理", "hook": "バラバラの予定、5分で整理できる？", "script": "バラバラの予定、5分で整理できる？ Geminiに条件を渡したら週の形になりました。重複を見落とさないかまで、本当に確認します。", "goal": "生活の悩みを主役にする"}, {"id": "gemini-long", "type": "長尺15分", "title": "Gemini初心者ガイド｜画像・Google活用を実演", "hook": "Geminiを、検索ではなく生活整理に使えるか試します。", "script": "【0:00】完成した旅行・予定プラン\n【0:30】登録と基本操作\n【2:00】画像を見せて質問\n【5:00】旅行計画を作る\n【8:00】週間予定を整理\n【11:00】誤りと確認方法\n【13:30】向いている人\n【14:30】結論", "goal": "画像入力と生活活用を定着"}], "Perplexity": [{"id": "perplexity-1", "type": "Shorts①", "title": "調べ物を3分で終わらせる", "hook": "検索タブ10枚、もう開かない？", "script": "検索タブ10枚、もう開かない？ Perplexityに聞くと、答えと出典が一緒に出ます。でも出典を開かないと危険。3分調査でどこまで使えるか試します。", "goal": "出典付き調査の価値を見せる"}, {"id": "perplexity-2", "type": "Shorts②", "title": "出典はここを見る", "hook": "答えより先に、ここを見ます。", "script": "答えより先に、出典を見ます。日付、公式情報か、内容が一致するか。この3点だけで、AI調査の事故はかなり減らせます。", "goal": "初心者向け確認方法"}, {"id": "perplexity-3", "type": "Shorts③", "title": "旅行先比較は任せられる？", "hook": "旅行先3つ、AIだけで比較できる？", "script": "旅行先3つ、AIだけで比較できる？ 料金、移動、子連れ条件まで表になりました。最新価格が本当に合うか、最後まで検証します。", "goal": "比較企画の視聴維持"}, {"id": "perplexity-long", "type": "長尺15分", "title": "Perplexity初心者ガイド｜出典付き調査を実演", "hook": "検索より早く、でも安全に調べられるのか試します。", "script": "【0:00】3分調査の完成結果\n【0:30】登録と検索画面\n【2:00】質問の作り方\n【4:30】出典の確認\n【7:00】旅行先を比較\n【10:00】間違った例\n【12:30】Google検索との使い分け\n【14:30】結論", "goal": "調査の安全性まで教える"}], "NotebookLM": [{"id": "notebooklm-1", "type": "Shorts①", "title": "資料だけで答えるAI", "hook": "ネットではなく、この資料だけで答えて。", "script": "ネットではなく、この資料だけで答えて。NotebookLMなら、入れた資料を元に整理できます。会議資料10枚を何分で読めるか試します。", "goal": "資料限定AIの違いを提示"}, {"id": "notebooklm-2", "type": "Shorts②", "title": "長い資料の質問方法", "hook": "全部要約、では弱いです。", "script": "「全部要約」では弱いです。「決定事項、未決事項、次の担当」で分ける。これだけで会議資料が一気に使いやすくなります。", "goal": "質問方法を1つ教える"}, {"id": "notebooklm-3", "type": "Shorts③", "title": "10ページを5分で理解できる？", "hook": "10ページ、5分で理解できる？", "script": "10ページ、5分で理解できる？ NotebookLMで要点と根拠を確認。どこまで読まずに済むのか、実際の資料で試します。", "goal": "時間制限付き検証"}, {"id": "notebooklm-long", "type": "長尺15分", "title": "NotebookLM初心者ガイド｜資料整理を実演", "hook": "大量資料を読む時間を、本当に減らせるのか試します。", "script": "【0:00】整理後の完成画面\n【0:30】資料の追加\n【2:30】基本的な質問\n【5:00】決定・未決・担当で整理\n【8:00】根拠箇所を確認\n【10:30】音声要約などの活用\n【13:00】向かない資料\n【14:30】結論", "goal": "仕事・学習の資産動画"}], "ElevenLabs": [{"id": "eleven-1", "type": "Shorts①", "title": "AI音声は人に聞こえる？", "hook": "この声、AIだと分かりますか？", "script": "この声、AIだと分かりますか？ ElevenLabsで同じ台本を3パターン生成。自然に聞こえる設定だけ残します。結果は長尺で比較。", "goal": "音声比較への興味"}, {"id": "eleven-2", "type": "Shorts②", "title": "自然にする台本の区切り", "hook": "声の設定より、台本が大事です。", "script": "声の設定より、台本が大事です。一文を短くして、意味ごとに改行。これだけでAI音声の息継ぎがかなり自然になります。", "goal": "脚本推敲アプリと直結"}, {"id": "eleven-3", "type": "Shorts③", "title": "15秒音声を何分で作れる？", "hook": "15秒のナレーション、何分で完成する？", "script": "15秒のナレーション、何分で完成する？ 台本修正から書き出しまで実測します。速さだけでなく、聞きやすさも比較。", "goal": "制作自動化の実験"}, {"id": "eleven-long", "type": "長尺15分", "title": "ElevenLabs初心者ガイド｜自然なAI音声を作る", "hook": "AI音声を自然にするのは、声選びか台本か、実際に比較します。", "script": "【0:00】3音声を聞き比べ\n【0:40】登録と基本画面\n【2:30】声を選ぶ\n【5:00】台本を話し言葉へ修正\n【8:00】設定を比較\n【10:30】字幕との合わせ方\n【13:00】失敗例\n【14:30】結論", "goal": "制作工程の資産動画"}], "AIニュース": [{"id": "news-1", "type": "Shorts①", "title": "新機能は本当に使える？", "hook": "新機能、すごいで終わらせません。", "script": "新機能、すごいで終わらせません。実際に1回使って、できたこと、できなかったことを15秒で報告します。", "goal": "ニュースを体験型にする"}, {"id": "news-2", "type": "Shorts②", "title": "初心者に必要か判定", "hook": "このAI機能、初心者に必要？", "script": "このAI機能、初心者に必要？ 便利さ、難しさ、無料で使えるか。この3点で、今すぐ試す価値を判定します。", "goal": "判断を提供する"}, {"id": "news-3", "type": "Shorts③", "title": "旧機能と比較", "hook": "新しいだけで、本当に良い？", "script": "新しいだけで、本当に良い？ 同じ作業を旧機能と新機能で比較。速さと完成度の差だけ見せます。", "goal": "比較で維持率を作る"}, {"id": "news-long", "type": "長尺15分", "title": "今週のAI新機能｜初心者目線で実用性を検証", "hook": "今週の新機能を、発表内容ではなく実際の結果で評価します。", "script": "【0:00】今週一番使えた機能\n【0:30】候補3件\n【2:00】機能1を実演\n【5:00】機能2を実演\n【8:00】機能3を実演\n【11:00】初心者向け順位\n【13:00】無料・有料の判断\n【14:30】来週予告", "goal": "流行20%枠"}]};
+const FLOW=['企画','脚本','画像','音声','動画','QA','完パケ'];
+let state=JSON.parse(localStorage.getItem('aiProducerV2')||'{}');
+if(!state.edits)state.edits={}; if(!state.approved)state.approved={}; if(!state.progress)state.progress={}; if(!state.ctas)state.ctas={}; if(!state.blockers)state.blockers={}; if(!state.current)state.current='intro-short';
+const all=[];Object.entries(DATA).forEach(([app,items])=>items.forEach(x=>all.push({...x,app})));
+const $=id=>document.getElementById(id); const current=()=>all.find(x=>x.id===state.current)||all[0];
+function save(){localStorage.setItem('aiProducerV2',JSON.stringify(state));render()}
+function textOf(x){return state.edits[x.id]??x.script}
+function renderFlow(){const stage=state.approved[state.current]?2:1;$('steps').innerHTML=FLOW.map((x,i)=>`<span class="step ${i<stage?'done':i===stage?'current':''}">${x}</span>`).join('')}
+function progressOf(x){if(state.progress[x.id]!=null)return state.progress[x.id];return state.approved[x.id]?28:8}
+function stageOf(p){if(p>=100)return '完パケ';if(p>=72)return '動画・QA';if(p>=57)return '音声済み';if(p>=43)return '画像済み';if(p>=28)return '制作待ち';return '脚本'}
+function blockerOf(x){const p=progressOf(x);if(state.blockers[x.id])return {kind:'error',text:'修正対応待ち：'+state.blockers[x.id]};if(p>=100)return {kind:'done',text:'完了：対応不要'};if(p<28)return {kind:'waiting',text:'確認待ち：脚本を確認して承認'};if(p===28)return {kind:'system',text:'制作ランナー未接続：画像生成を開始できません'};if(p<57)return {kind:'waiting',text:p<43?'確認待ち：画像を確認・承認':'確認待ち：音声を確認・承認'};return {kind:'waiting',text:'確認待ち：最終動画・完パケを承認'}}
+function stateMeta(x){const p=progressOf(x),b=blockerOf(x);if(b.kind==='error')return {key:'error',label:'⚠ 修正待ち'};if(p>=100)return {key:'done',label:'✅ 完了'};if(p<28)return {key:'script',label:'📝 脚本'};if(b.kind==='system')return {key:'production',label:'🤖 制作待ち'};return {key:'waiting',label:'👀 確認待ち'}}
+function renderAttention(){const waiting=all.map(x=>({x,b:blockerOf(x)})).filter(z=>z.b.kind!=='done');const priority={error:0,waiting:1,system:2};const userFirst=waiting.sort((a,b)=>(priority[a.b.kind]??9)-(priority[b.b.kind]??9)).slice(0,5);$('attentionCount').textContent=waiting.length+'件';$('attentionBoard').classList.toggle('ok',waiting.length===0);$('attentionBoard').classList.toggle('has-error',waiting.some(z=>z.b.kind==='error'));$('attentionList').innerHTML=userFirst.length?userFirst.map(({x,b})=>`<div class="attention-item"><div><b>${x.app}｜${x.title}</b><div class="blocker ${b.kind}">${b.text}</div></div><button data-attention="${x.id}">開く</button></div>`).join(''):'<div class="attention-item">✅ 現在、対応が必要な案件はありません。</div>';document.querySelectorAll('[data-attention]').forEach(btn=>btn.onclick=()=>{state.current=btn.dataset.attention;save();show(progressOf(current())<28?'script':'review')})}
+function ctaOf(x){if(!x.type.startsWith('Shorts'))return '';return state.ctas[x.id]??'AIをこれから使ってみたい人は、チャンネル登録して一緒に試していきましょう。'}
+function renderHome(){const apps=['すべて',...Object.keys(DATA)];if(!$('appFilter').options.length)$('appFilter').innerHTML=apps.map(x=>`<option>${x}</option>`).join('');const f=$('appFilter').value||'すべて';const rows=all.filter(x=>f==='すべて'||x.app===f);$('library').innerHTML=rows.map(x=>{const p=progressOf(x),b=blockerOf(x),m=stateMeta(x);return `<div class="item state-${m.key}" data-id="${x.id}"><div class="item-head"><div><strong>${x.app}｜${x.type}</strong><small>${x.title}</small></div><span class="state-chip ${m.key}">${m.label}</span></div><div class="item-progress"><div class="bar"><i class="${m.key}" style="width:${p}%"></i></div><em>${p}%</em></div><div class="stage-label">${stageOf(p)}</div><div class="blocker ${b.kind}">${b.text}</div></div>`}).join('');document.querySelectorAll('.item').forEach(el=>el.onclick=()=>{state.current=el.dataset.id;save();show('script')});
+const approvedCount=Object.values(state.approved).filter(Boolean).length;const waitingCount=all.filter(x=>blockerOf(x).kind==='waiting'||progressOf(x)<28).length;const makingCount=all.filter(x=>{const p=progressOf(x);return p>=28&&p<100&&blockerOf(x).kind==='system'}).length;const doneCount=all.filter(x=>progressOf(x)>=100).length;
+$('kAll').textContent=all.length;$('kPending').textContent=waitingCount;$('kMaking').textContent=makingCount;$('kDone').textContent=doneCount;
+const x=current();const p=progressOf(x),b=blockerOf(x),m=stateMeta(x);$('nextTitle').textContent=p>=28?'「'+x.title+'」を確認':'「'+x.title+'」を推敲';$('nextText').textContent=p>=28?`現在 ${p}%（${stageOf(p)}）。必要な確認だけ行います。`:x.app+'の'+x.type+'脚本を確認します。';$('nextStatus').textContent=m.label+' '+p+'%';$('nextStatus').className='status '+(m.key==='script'?'waiting':m.key);document.querySelector('.next').classList.toggle('is-production',m.key==='production'||m.key==='done');document.querySelector('.next').classList.toggle('is-error',m.key==='error');
+const errors=all.filter(y=>blockerOf(y).kind==='error').length;const waits=all.filter(y=>blockerOf(y).kind==='waiting').length;let systemKey='done',systemTitle='✅ 対応不要',systemText='現在、確認が必要な案件はありません。';if(errors){systemKey='error';systemTitle='🔴 修正対応待ち';systemText=errors+'件の修正理由を確認してください。'}else if(waits){systemKey='waiting';systemTitle='🟨 確認待ち';systemText=waits+'件、あなたの確認が必要です。'}else if(makingCount){systemKey='production';systemTitle='🟢 AI制作中';systemText=makingCount+'件が制作工程にあります。'}$('systemDot').className='status-dot '+systemKey;$('systemTitle').textContent=systemTitle;$('systemText').textContent=systemText;renderAttention()}
+function renderScript(){const x=current();$('sApp').value=x.app;$('sSelect').innerHTML=all.filter(y=>y.app===x.app).map(y=>`<option value="${y.id}" ${y.id===x.id?'selected':''}>${y.type}｜${y.title}</option>`).join('');$('sGoal').value=x.goal;$('sHook').value=x.hook;$('sText').value=textOf(x);const isShort=x.type.startsWith('Shorts');$('ctaField').classList.toggle('hidden',!isShort);$('sCta').value=ctaOf(x);$('scriptStatus').textContent=state.approved[x.id]?'承認済み':'未承認';$('scriptStatus').className='status '+(state.approved[x.id]?'ok':'');updateCount()}
+function updateCount(){const t=$('sText').value;$('charInfo').textContent=`${t.length}文字。Shortsは読み上げ速度により約12〜20秒の範囲になります。`}
+function render(){renderFlow();renderHome();renderScript()}
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.view===id))}
+document.querySelectorAll('.nav button').forEach(b=>b.onclick=()=>show(b.dataset.view));$('appFilter').onchange=renderHome;$('openNext').onclick=()=>show(state.approved[state.current]?'review':'script');$('sSelect').onchange=e=>{state.current=e.target.value;save()};$('sText').oninput=()=>{state.edits[state.current]=$('sText').value;localStorage.setItem('aiProducerV2',JSON.stringify(state));updateCount()};$('sCta').oninput=()=>{state.ctas[state.current]=$('sCta').value;localStorage.setItem('aiProducerV2',JSON.stringify(state))};$('sHook').oninput=()=>{};$('natural').onclick=()=>{let t=$('sText').value.replace(/ご紹介します/g,'試します').replace(/することができます/g,'できます').replace(/ということです/g,'です').replace(/。/g,'。\n');$('sText').value=t;state.edits[state.current]=t;save()};$('reset').onclick=()=>{delete state.edits[state.current];delete state.approved[state.current];delete state.progress[state.current];delete state.ctas[state.current];delete state.blockers[state.current];save()};$('approve').onclick=()=>{state.edits[state.current]=$('sText').value.trim();state.ctas[state.current]=$('sCta').value.trim();state.approved[state.current]=true;delete state.blockers[state.current];state.progress[state.current]=Math.max(state.progress[state.current]||0,28);save();alert('脚本を承認しました。次は制作側が画像・音声・動画を作り、こちらは確認だけです。');show('review')};
+const OP_HELP={
+ 'system-status':{title:'全体ステータス',text:'色と短い文章で、今の全体状態を表示します。',detail:'黄色は確認待ち、緑は制作中、赤は修正・異常、灰色は対応不要です。色だけに頼らず文章でも状態を示します。'},
+ next:{title:'「次へ」の使い方',text:'選択中の動画で、次に必要な画面へ進みます。',detail:'脚本が未承認なら脚本推敲へ、承認済みなら成果物確認へ移動します。迷ったときはこのボタンだけ押せば大丈夫です。'},
+ ranking:{title:'流行テーマから動画を作る',text:'ランキング内の「作る」を押すと、そのテーマの脚本を選択します。',detail:'押した直後に脚本推敲画面が開きます。脚本を確認して、必要な部分だけ直してください。'},
+ 'script-edit':{title:'脚本推敲欄',text:'社長が主に編集する場所です。',detail:'冒頭2秒で興味を引けるか、内容が1メッセージに絞られているか、実際に読み上げて自然かを確認します。'},
+ cta:{title:'チャンネル登録の訴求',text:'Shorts本編とは別に、最後へ自動追加する登録案内です。',detail:'本編の結論を邪魔しない短い文章にします。動画ごとに変更でき、長尺動画では表示されません。'},
+ natural:{title:'話し言葉に整える',text:'硬い表現を簡単な話し言葉へ変換します。',detail:'改行も追加されます。変換後は必ず読み返し、不自然な箇所だけ手で直してください。'},
+ reset:{title:'元に戻す',text:'この動画の推敲内容・承認・進捗・登録訴求を初期状態へ戻します。',detail:'保存済みの修正も消えるため、やり直すときだけ使ってください。'},
+ 'approve-script':{title:'脚本を承認して制作へ',text:'脚本を確定し、制作待ちの状態へ進めます。',detail:'現在は制作ランナー未接続のため、承認後に画像生成が自動開始するわけではありません。進捗は28%になります。'},
+ 'approve-image':{title:'画像を「問題なし」にする',text:'候補画像の構図・文字・人物・アプリ画面を確認します。',detail:'問題がなければ進捗が43%へ進みます。実際の画像が未表示の間は押さないでください。'},
+ 'approve-audio':{title:'音声を「問題なし」にする',text:'発音、速度、間、読み間違い、音量を確認します。',detail:'問題がなければ進捗が57%へ進みます。イヤホンとスマホスピーカーの両方で確認する想定です。'},
+ 'approve-package':{title:'完パケ承認',text:'最終動画・サムネ・タイトル・概要欄をまとめて承認します。',detail:'公開できる状態だと判断したときだけ押します。進捗は100%として保存されます。'},
+ revise:{title:'修正依頼',text:'成果物に問題があるとき、制作側へ戻す操作です。',detail:'現在は記録用UIで、制作ランナーへの自動送信はまだ未接続です。次版で修正内容入力と連携を追加します。'}
+};
+let tutorialMode='full';
+function openOperationHelp(key){const h=OP_HELP[key];if(!h)return;tutorialMode='single';$('tTitle').textContent=h.title;$('tText').textContent=h.text;$('tDetail').textContent=h.detail;$('tPrev').style.display='none';$('tNext').textContent='閉じる';$('tutorial').classList.remove('hidden')}
+const TUTORIAL=[
+ {title:'1. 今日作る動画を選ぶ',text:'ホーム上部の「今日の流行テーマ TOP3」または脚本ライブラリから動画を選びます。',detail:'ランキングの「作る」を押すと、対応する脚本が選択され、脚本推敲画面へ移動します。',target:'.trendbar'},
+ {title:'2. 脚本だけ確認する',text:'社長が編集するのは基本的に脚本だけです。',detail:'文章を直し、「脚本を承認して制作へ」を押します。話し言葉ボタンは必要なときだけ使います。',target:'#script'},
+ {title:'3. 完成品を確認する',text:'画像・音声・動画は制作側が作ります。',detail:'成果物確認で「問題なし」または「修正依頼」を選ぶだけです。これで完パケまで進みます。',target:'#review'}
+];
+let tutorialIndex=0;
+function openTutorial(){tutorialMode='full';tutorialIndex=0;$('tutorial').classList.remove('hidden');$('tPrev').style.display='';renderTutorial()}
+function renderTutorial(){const t=TUTORIAL[tutorialIndex];$('tTitle').textContent=t.title;$('tText').textContent=t.text;$('tDetail').textContent=t.detail;$('tPrev').style.visibility=tutorialIndex===0?'hidden':'visible';$('tNext').textContent=tutorialIndex===TUTORIAL.length-1?'使い始める':'次へ'}
+$('tPrev').onclick=()=>{if(tutorialIndex>0){tutorialIndex--;renderTutorial()}};
+$('tNext').onclick=()=>{if(tutorialMode==='single'){$('tutorial').classList.add('hidden');return}if(tutorialIndex<TUTORIAL.length-1){tutorialIndex++;renderTutorial()}else{$('tutorial').classList.add('hidden');localStorage.setItem('aiProducerTutorialDone','1')}};
+$('helpBtn').onclick=openTutorial;document.querySelectorAll('.ophelp').forEach(b=>b.onclick=e=>{e.stopPropagation();openOperationHelp(b.dataset.help)});
+document.querySelectorAll('.rankbtn').forEach(b=>b.onclick=()=>{state.current=b.dataset.topic;save();show('script')});
+
+document.querySelectorAll('#review .approve').forEach((b,i)=>b.onclick=()=>{const stages=[43,57,100];state.progress[state.current]=Math.max(state.progress[state.current]||0,stages[i]);delete state.blockers[state.current];save();alert(i===2?'完パケ承認として記録しました。':'確認OKとして進捗を更新しました。')});
+document.querySelectorAll('#review .revise').forEach((b,i)=>b.onclick=()=>{const target=['画像','音声','動画・完パケ'][i];const reason=prompt(target+'の具体的な修正理由を入力してください。','');if(reason&&reason.trim()){state.blockers[state.current]=target+'：'+reason.trim();save();alert('修正理由を保存しました。進捗欄に「修正対応待ち」と表示します。')}});
+
+if(!localStorage.getItem('aiProducerTutorialDone'))setTimeout(openTutorial,250);
+render();
+</script>
+<div id="safeImportWrap" class="hidden"><input id="safeImportFile" type="file" accept=".json,application/json"></div>
+
+
+<script id="v9-safe-script">
+(function(){
+'use strict';
+const SAFE_KEY='aiProducerSafeVaultV1';
+const PRIMARY_KEY='aiProducerV2';
+const MAX_REVISIONS=80;
+const now=()=>new Date().toISOString();
+const clone=o=>JSON.parse(JSON.stringify(o||{}));
+function readVault(){
+  try{
+    const v=JSON.parse(localStorage.getItem(SAFE_KEY)||'{}');
+    return Object.assign({schema:1,createdAt:now(),updatedAt:now(),snapshots:[],revisions:{},cuts:{},migrationLog:[]},v);
+  }catch(e){
+    return {schema:1,createdAt:now(),updatedAt:now(),snapshots:[],revisions:{},cuts:{},migrationLog:[{at:now(),note:'保護領域を再作成'}]};
+  }
+}
+let vault=readVault();
+function writeVault(){
+  vault.updatedAt=now();
+  localStorage.setItem(SAFE_KEY,JSON.stringify(vault));
+  updateSafeStatus();
+}
+function currentState(){
+  try{return JSON.parse(localStorage.getItem(PRIMARY_KEY)||'{}')}catch(e){return {}}
+}
+function snapshot(reason, force=false){
+  const data=currentState();
+  const serialized=JSON.stringify(data);
+  const last=vault.snapshots[vault.snapshots.length-1];
+  if(!force && last && last.dataHash===serialized) return;
+  vault.snapshots.push({at:now(),reason,dataHash:serialized,data:clone(data)});
+  if(vault.snapshots.length>40)vault.snapshots=vault.snapshots.slice(-40);
+  writeVault();
+}
+function addRevision(id,text,reason){
+  if(!id)return;
+  vault.revisions[id]=vault.revisions[id]||[];
+  const list=vault.revisions[id];
+  if(list.length && list[list.length-1].text===text)return;
+  list.push({at:now(),reason:reason||'推敲保存',text});
+  if(list.length>MAX_REVISIONS)vault.revisions[id]=list.slice(-MAX_REVISIONS);
+  writeVault();
+}
+function saveCurrentRevision(reason){
+  const ta=document.getElementById('sText');
+  if(!ta||!window.state)return;
+  state.edits[state.current]=ta.value;
+  localStorage.setItem(PRIMARY_KEY,JSON.stringify(state));
+  addRevision(state.current,ta.value,reason||'手動保存');
+  snapshot(reason||'手動保存',true);
+  updateSafeStatus('保存しました');
+}
+function updateSafeStatus(message){
+  const el=document.getElementById('safeStatus');
+  if(!el)return;
+  const revs=Object.values(vault.revisions||{}).reduce((n,a)=>n+a.length,0);
+  el.innerHTML='<strong>'+(message||'自動保存有効')+'</strong>　履歴 '+revs+'件／保護バックアップ '+vault.snapshots.length+'件';
+}
+function downloadJSON(){
+  saveCurrentRevision('バックアップ書き出し前');
+  const payload={
+    app:'AI Producer Studio',
+    version:'v9-safe',
+    exportedAt:now(),
+    primaryState:currentState(),
+    safeVault:vault
+  };
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='AI_Producer_backup_'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+function importJSON(file){
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const payload=JSON.parse(r.result);
+      if(!payload.primaryState)throw new Error('primaryStateがありません');
+      snapshot('復元前の自動退避',true);
+      localStorage.setItem(PRIMARY_KEY,JSON.stringify(payload.primaryState));
+      if(payload.safeVault){
+        vault=payload.safeVault;
+        writeVault();
+      }
+      alert('バックアップを復元しました。画面を再読み込みします。');
+      location.reload();
+    }catch(e){alert('復元できませんでした：'+e.message)}
+  };
+  r.readAsText(file);
+}
+function parseSections(text){
+  const lines=text.split('\n');
+  const starts=[];
+  lines.forEach((line,i)=>{if(/^\s*【[^】]+】/.test(line))starts.push(i)});
+  return starts.map((start,idx)=>{
+    const end=idx+1<starts.length?starts[idx+1]:lines.length;
+    const label=(lines[start].match(/【([^】]+)】/)||[])[1]||('区間'+(idx+1));
+    return {start,end,label,text:lines.slice(start,end).join('\n').trim()};
+  });
+}
+function refreshCutUI(){
+  const panel=document.getElementById('cutPanel');
+  if(!panel||!window.state)return;
+  const x=window.current?current():null;
+  const isLong=x&&String(x.type).includes('長尺');
+  panel.classList.toggle('hidden',!isLong);
+  if(!isLong)return;
+  const select=document.getElementById('cutSelect');
+  const sections=parseSections(document.getElementById('sText').value);
+  select.innerHTML=sections.length?sections.map((s,i)=>'<option value="'+i+'">'+s.label+'</option>').join(''):'<option>【時間】見出しが見つかりません</option>';
+  select.disabled=!sections.length;
+  document.getElementById('cutBtn').disabled=!sections.length;
+  const logs=(vault.cuts[state.current]||[]).slice().reverse();
+  document.getElementById('cutLog').innerHTML=logs.length?logs.slice(0,8).map(x=>'<div>✂ '+new Date(x.at).toLocaleString('ja-JP')+'｜'+x.label+'</div>').join(''):'<div>カット履歴はありません。</div>';
+}
+function cutSelected(){
+  const ta=document.getElementById('sText');
+  const sections=parseSections(ta.value);
+  const idx=Number(document.getElementById('cutSelect').value);
+  const sec=sections[idx];
+  if(!sec)return;
+  if(!confirm('「'+sec.label+'」のくだりを丸ごとカットしますか？\n削除内容は履歴に残り、元に戻せます。'))return;
+  saveCurrentRevision('区間カット前');
+  const lines=ta.value.split('\n');
+  const removed=lines.slice(sec.start,sec.end).join('\n');
+  lines.splice(sec.start,sec.end-sec.start);
+  ta.value=lines.join('\n').replace(/\n{3,}/g,'\n\n').trim();
+  state.edits[state.current]=ta.value;
+  localStorage.setItem(PRIMARY_KEY,JSON.stringify(state));
+  vault.cuts[state.current]=vault.cuts[state.current]||[];
+  vault.cuts[state.current].push({at:now(),label:sec.label,removed,beforeIndex:sec.start});
+  writeVault();
+  addRevision(state.current,ta.value,'「'+sec.label+'」をカット');
+  snapshot('区間カット後',true);
+  if(window.updateCount)updateCount();
+  refreshCutUI();
+}
+function undoCut(){
+  const list=vault.cuts[state.current]||[];
+  const last=list.pop();
+  if(!last){alert('戻せるカットがありません。');return}
+  saveCurrentRevision('カット取り消し前');
+  const ta=document.getElementById('sText');
+  const lines=ta.value.split('\n');
+  lines.splice(Math.min(last.beforeIndex,lines.length),0,last.removed,'');
+  ta.value=lines.join('\n').replace(/\n{3,}/g,'\n\n').trim();
+  state.edits[state.current]=ta.value;
+  localStorage.setItem(PRIMARY_KEY,JSON.stringify(state));
+  addRevision(state.current,ta.value,'カットを元に戻す');
+  snapshot('カット復元後',true);
+  writeVault();
+  if(window.updateCount)updateCount();
+  refreshCutUI();
+}
+function addUI(){
+  const homeCard=document.querySelector('#home .card');
+  if(homeCard&&!document.getElementById('safePanel')){
+    const p=document.createElement('div');
+    p.className='safe-panel';p.id='safePanel';
+    p.innerHTML='<h3>💾 データ保護・蓄積</h3><div class="safe-grid"><button class="safe-btn primary-safe" id="saveRevisionBtn">推敲版を保存</button><button class="safe-btn" id="exportBtn">バックアップ書き出し</button><button class="safe-btn" id="importBtn">バックアップ復元</button></div><div class="safe-status" id="safeStatus"></div><div class="note">同じGitHub Pages URLを同じブラウザで開く限り自動保存されます。端末変更前はJSONを書き出してください。</div>';
+    homeCard.appendChild(p);
+  }
+  const editor=document.querySelector('#script .editor-grid .card:last-child');
+  if(editor&&!document.getElementById('cutPanel')){
+    const p=document.createElement('div');
+    p.className='cut-panel hidden';p.id='cutPanel';
+    p.innerHTML='<h3>✂ 長尺の「くだり」を丸ごとカット</h3><div class="note">【0:00 見出し】から次の【時間 見出し】直前までを1区間として削除します。削除内容は履歴に残ります。</div><div class="cut-row"><select id="cutSelect"></select><button class="revise" id="cutBtn">このくだりをカット</button></div><div class="toolbar"><button class="ghost" id="undoCutBtn">直前のカットを戻す</button><button class="ghost" id="saveRevisionBtn2">現在版を履歴保存</button><span class="save-indicator" id="editorSaveIndicator">自動保存中</span></div><div class="cut-log" id="cutLog"></div>';
+    editor.appendChild(p);
+  }
+  document.getElementById('saveRevisionBtn')?.addEventListener('click',()=>saveCurrentRevision('手動保存'));
+  document.getElementById('saveRevisionBtn2')?.addEventListener('click',()=>saveCurrentRevision('手動保存'));
+  document.getElementById('exportBtn')?.addEventListener('click',downloadJSON);
+  document.getElementById('importBtn')?.addEventListener('click',()=>document.getElementById('safeImportFile').click());
+  document.getElementById('safeImportFile')?.addEventListener('change',e=>e.target.files[0]&&importJSON(e.target.files[0]));
+  document.getElementById('cutBtn')?.addEventListener('click',cutSelected);
+  document.getElementById('undoCutBtn')?.addEventListener('click',undoCut);
+}
+snapshot('v9初回起動・既存データ保護',true);
+addUI();
+const ta=document.getElementById('sText');
+let timer;
+if(ta){
+  ta.addEventListener('input',()=>{
+    clearTimeout(timer);
+    const ind=document.getElementById('editorSaveIndicator');
+    if(ind)ind.textContent='入力中…';
+    timer=setTimeout(()=>{
+      if(window.state){
+        state.edits[state.current]=ta.value;
+        localStorage.setItem(PRIMARY_KEY,JSON.stringify(state));
+        addRevision(state.current,ta.value,'自動保存');
+        snapshot('自動保存');
+        if(ind)ind.textContent='保存済み';
+        refreshCutUI();
+      }
+    },700);
+  });
+  ta.addEventListener('blur',()=>saveCurrentRevision('編集欄を離れた時点'));
+}
+const originalRenderScript=window.renderScript;
+if(typeof originalRenderScript==='function'){
+  window.renderScript=function(){
+    originalRenderScript();
+    setTimeout(refreshCutUI,0);
+  };
+}
+const resetBtn=document.getElementById('reset');
+if(resetBtn){
+  resetBtn.classList.add('danger-guard');
+  resetBtn.textContent='初期状態へ戻す（履歴保存）';
+  resetBtn.onclick=()=>{
+    if(!confirm('現在の推敲内容を初期状態へ戻しますか？\n戻す前の内容は履歴と保護バックアップに保存されます。'))return;
+    saveCurrentRevision('初期化前の退避');
+    delete state.edits[state.current];
+    delete state.approved[state.current];
+    delete state.progress[state.current];
+    delete state.ctas[state.current];
+    delete state.blockers[state.current];
+    localStorage.setItem(PRIMARY_KEY,JSON.stringify(state));
+    snapshot('初期化後',true);
+    if(window.render)render();
+    refreshCutUI();
+  };
+}
+const approveBtn=document.getElementById('approve');
+if(approveBtn){
+  const oldApprove=approveBtn.onclick;
+  approveBtn.onclick=()=>{
+    saveCurrentRevision('承認直前');
+    if(oldApprove)oldApprove();
+    snapshot('承認後',true);
+  };
+}
+window.addEventListener('beforeunload',()=>{try{saveCurrentRevision('終了時保存')}catch(e){}});
+refreshCutUI();
+updateSafeStatus();
+})();
+</script>
+
+</body></html>
